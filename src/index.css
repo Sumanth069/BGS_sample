@@ -1,0 +1,44 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #dbeafe;
+  background: #020617;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, #0f172a 0%, #020617 60%); }
+
+.app-shell { min-height: 100vh; position: relative; overflow: hidden; }
+.background-glow {
+  position: absolute; inset: -20%; pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(56,189,248,.2), transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(14,116,144,.25), transparent 35%);
+  filter: blur(20px);
+}
+.layout { display: grid; grid-template-columns: 240px 1fr; gap: 1rem; padding: 1rem; }
+.content { position: relative; z-index: 1; }
+.glass-card {
+  background: rgba(15,23,42,.55);
+  border: 1px solid rgba(125,211,252,.25);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 10px 40px rgba(8,47,73,.25);
+}
+.navbar { position: sticky; top: 0; z-index: 2; margin: 1rem; }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.brand { font-weight: 700; }
+.sidebar button { display:block; width:100%; margin-bottom:.6rem; padding:.6rem .8rem; border-radius:.8rem; border:1px solid transparent; background:transparent; color:#bae6fd; cursor:pointer; }
+.sidebar button.active { border-color: rgba(125,211,252,.35); background: rgba(12,74,110,.35); }
+.grid-2 { display:grid; grid-template-columns: 1.5fr 1fr; gap: 1rem; }
+.stack { display:grid; gap: 1rem; }
+.label { color:#7dd3fc; font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; }
+.metric { font-size:1.6rem; font-weight:700; }
+input, select, textarea { width: 100%; background:#0b1120; color:#dbeafe; border:1px solid #1e3a8a; border-radius:.6rem; padding:.55rem; }
+button.primary { background: linear-gradient(90deg, #0284c7, #06b6d4); border:none; color:white; border-radius:.7rem; padding:.65rem 1rem; cursor:pointer; }
+.badge { display:inline-flex; padding:.2rem .6rem; border-radius:999px; font-size:.75rem; }
+.badge.high { background:#7f1d1d; color:#fecaca; }
+.badge.medium { background:#78350f; color:#fde68a; }
+.badge.low { background:#14532d; color:#bbf7d0; }
+.flow-line { height: 4px; border-radius: 999px; background: linear-gradient(90deg, #0ea5e9, #22d3ee); margin-top: .6rem; animation: flow 2.4s linear infinite; }
+@keyframes flow { 0% { transform: translateX(-18%); opacity: .2;} 50% {opacity: 1;} 100% { transform: translateX(18%); opacity: .2;} }
+@media (max-width: 960px) { .layout { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
