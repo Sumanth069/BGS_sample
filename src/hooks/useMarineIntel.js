@@ -11,6 +11,7 @@ export default function useMarineIntel() {
   const [alerts, setAlerts] = useState([]);
   const [waterLevel, setWaterLevel] = useState(null);
   const [rainfall, setRainfall] = useState(0);
+  const [lastUpdated, setLastUpdated] = useState('');
 
   useEffect(() => {
     const geolocation = navigator?.geolocation;
@@ -42,6 +43,7 @@ export default function useMarineIntel() {
         setAlerts(alertsPayload.features);
         setWaterLevel(waterPayload);
         setRainfall(precipitationPayload.avgPrecipitation);
+        setLastUpdated(new Date().toISOString());
       } catch (err) {
         if (!mounted) return;
         setError(err.message || 'Failed to load marine intelligence data');
@@ -80,6 +82,7 @@ export default function useMarineIntel() {
     alerts,
     waterLevel,
     rainfall,
+    lastUpdated,
     ...computed,
   };
 }

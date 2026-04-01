@@ -2,6 +2,7 @@ import MapView from '../components/Map/MapView';
 import PredictionPanel from '../components/Dashboard/PredictionPanel';
 import StatsCards from '../components/Dashboard/StatsCards';
 import Alerts from '../components/Dashboard/Alerts';
+import SystemStatus from '../components/Dashboard/SystemStatus';
 import useMarineIntel from '../hooks/useMarineIntel';
 
 export default function Dashboard() {
@@ -16,6 +17,7 @@ export default function Dashboard() {
       <div className="stack">
         <PredictionPanel intel={intel} />
         <StatsCards intel={intel} />
+        <SystemStatus intel={intel} />
       </div>
     </div>
   );
